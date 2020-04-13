@@ -49,4 +49,4 @@ def move(coords, img_shape, move_mult=5):
         if t > -75 and t < -15:
             right()
             down()
-    return 
+    return r/r_max
