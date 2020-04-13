@@ -1,13 +1,29 @@
 import RPi.GPIO as GPIO
-import time
+from time import sleep
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(21,GPIO.OUT)
-GPIO.setup(20,GPIO.OUT)
+water = 20
 
-for i in range(0,10):
-     GPIO.output(21,1)
-     print("here")
-     time.sleep(.01)
-     GPIO.output(21,0)
-     time.sleep(.01)
+air = 21
+water_delay = 2 
+air_delay = .3
+delay = .2
+GPIO.setup(water,GPIO.OUT)
+GPIO.setup(air,GPIO.OUT)
+GPIO.output(air,1)
+GPIO.output(water,1)
+
+#turn both off
+def fire():
+    GPIO.output(air,1)
+    GPIO.output(water,1)
+    sleep(1)
+    GPIO.output(water,0) #open water
+    sleep(water_delay)
+    GPIO.output(water,1)
+    sleep(delay)
+    GPIO.output(air,0)
+    sleep(air_delay)
+    GPIO.output(air,1)
+
+
