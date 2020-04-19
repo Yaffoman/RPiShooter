@@ -6,7 +6,7 @@ water = 20
 
 air = 21
 water_delay = 2 
-air_delay = .3
+air_delay = .5
 delay = .2
 GPIO.setup(water,GPIO.OUT)
 GPIO.setup(air,GPIO.OUT)
