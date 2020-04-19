@@ -1,4 +1,4 @@
-#Code skeleton
+# Code skeleton
 """
 1. initialize camera and lidar
 2. initialize tensorflow files
@@ -18,4 +18,3 @@ Main loop:
         open air valv(1s)
         close water valve
 """
-
