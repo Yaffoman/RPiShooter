@@ -1,10 +1,12 @@
+import RPi.GPIO as GPIO
+
 pattern = [(0, 1, 0, 1), (0, 1, 0, 0), (0, 1, 1, 0), (0, 0, 1, 0), (1, 0, 1, 0), (1, 0, 0, 0), (1, 0, 0, 1),
            (0, 0, 0, 1)]  # halfstep pattern
 delay = .05
 
 
 class Motor:
-    import RPi.GPIO as GPIO
+
     import time
     from time import sleep
     GPIO.setmode(GPIO.BCM)
@@ -28,6 +30,9 @@ class Motor:
     def dec(self):
         self.state = (self.state - 1) % len(pattern)
         self.move(pattern[self.state])
+
+    def off(self):
+        self.move(0, 0, 0, 0)
 
     def move(self, inpt):
         GPIO.output(self.A1, inpt[0])

@@ -1,14 +1,14 @@
 # Motor 1 (Bottom)
-M1A1 = 12
-M1A2 = 16
-M1B1 = 20
-M1B2 = 21
+M1B2 = 12
+M1B1 = 16
+M1A1 = 20
+M1A2 = 21
 
 # Motor 2 (Arm)
-M2A1 = 6
-M2A2 = 13
-M2B1 = 19
-M2B2 = 26
+M2B2 = 6
+M2B1 = 13
+M2A1 = 19
+M2A2 = 26
 
 #GPIO.setup(17,GPIO.OUT) B1 #in 3    bl    red
 #GPIO.setup(27,GPIO.OUT) B2 #in 4    tl    blue
