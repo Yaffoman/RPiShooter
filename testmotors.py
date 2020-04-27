@@ -22,10 +22,12 @@ while True:
     if keyboard.is_pressed('w'):
         m1.inc()
     if keyboard.is_pressed('a'):
-        m1.inc()
+        m2.inc()
     if keyboard.is_pressed('s'):
         m1.dec()
     if keyboard.is_pressed('d'):
-        m1.dec()
+        m2.dec()
     if keyboard.is_pressed('q'):
         break
+m1.off()
+m2.off()

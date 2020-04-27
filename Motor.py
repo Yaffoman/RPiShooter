@@ -33,7 +33,7 @@ class Motor:
         self.move(pattern[self.state])
 
     def off(self):
-        self.move(0, 0, 0, 0)
+        self.move((0, 0, 0, 0))
 
     def move(self, inpt):
         GPIO.output(self.A1, inpt[0])
