@@ -1,9 +1,10 @@
 import numpy as np
 # idk how to do the actual motor control
 from Motor import *
+from IOpins import *
 
-motor1 = Motor(18, 22, 17, 27)
-motor2 = Motor(18, 22, 17, 27)  # TODO
+motor1 = Motor(M1A1, M1A2, M1B1, M1B2)
+motor2 = Motor(M2A1, M2A2, M2B1, M2B2)
 
 
 def up():
@@ -43,24 +44,24 @@ def move(coords, img_shape, move_mult=5):
     r, t = to_polar(coords, img_shape)
     reps = int(r / max_r) * move_mult
     for _ in range(reps):
-        if t > -15 and t <= 15:
+        if -15 < t <= 15:
             right()
-        if t > 15 and t <= 75:
+        if 15 < t <= 75:
             right()
             up()
-        if t > 75 and t <= 105:
+        if 75 < t <= 105:
             up()
-        if t > 105 and t <= 165:
+        if 105 < t <= 165:
             left()
             up()
         if t > 165 or t <= -165:
             left()
-        if t > -165 and t <= -105:
+        if -165 < t <= -105:
             left()
             down()
-        if t > -105 and t <= -75:
+        if -105 < t <= -75:
             down()
-        if t > -75 and t < -15:
+        if -75 < t < -15:
             right()
             down()
     return r / max_r

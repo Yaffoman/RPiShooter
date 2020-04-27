@@ -15,7 +15,7 @@ def getTFminiData():
                 high = int(recv[3].encode('hex'), 16)
                 distance = low + high * 256
                 print(distance)
-                
+                return distance
 
 
 if __name__ == '__main__':
