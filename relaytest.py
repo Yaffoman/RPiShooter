@@ -2,11 +2,11 @@ import RPi.GPIO as GPIO
 from time import sleep
 GPIO.setmode(GPIO.BCM)
 
-water = 20
+water = 23
 
-air = 21
-water_delay = 2 
-air_delay = .5
+air = 24
+water_delay = 1 
+air_delay = .3
 delay = .2
 GPIO.setup(water,GPIO.OUT)
 GPIO.setup(air,GPIO.OUT)
