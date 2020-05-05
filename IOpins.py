@@ -10,6 +10,10 @@ M2B1 = 13
 M2A1 = 19
 M2A2 = 26
 
+en2 = 6
+dirpin2 = 13
+pul2 = 19
+
 #GPIO.setup(17,GPIO.OUT) B1 #in 3    bl    red
 #GPIO.setup(27,GPIO.OUT) B2 #in 4    tl    blue
 
