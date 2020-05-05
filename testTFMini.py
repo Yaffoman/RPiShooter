@@ -12,7 +12,9 @@ def getTFminiData():
             if recv[0] == 0x59 and recv[1] == 0x59: # 0x59 is 'Y'
                 dist = recv[2] + recv[3]*256
                 strength = recv[4] + recv[5]*256
-                return dist
+                
+                print(dist,strength)
+            
 
 
 if __name__ == '__main__':

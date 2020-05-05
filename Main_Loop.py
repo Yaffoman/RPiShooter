@@ -14,23 +14,26 @@ threshold = 10
 3. execute main loop (ending on keypress/pin connected to button)
 """
 
-
+sleep(15)
 while True:
     if cv2.waitKey(1) == ord('q'):
         break
-    x, y = detect()           # midpt of detection box
-    while abs(x - 320) > threshold or abs(y-200) > threshold:
-        delay(.3)
-        if x > 320 + threshold:
-            left()
-        elif x < 320 - threshold:
-            right()
+    (x, y) = detect()           # midpt of detection box
+    while abs(x - 320) > threshold or abs(y-240) > threshold:
+        
 
-        if y > 200 + threshold:
-            down()
-        elif y < 200 - threshold:
+        if x > (320 + threshold):
+            right()
+        elif x < (320 - threshold):
+            left()
+
+        if y > (200 + threshold):
             up()
-        x, y = detect()
+        elif y < (200 - threshold):
+            down()
+        (x, y) = detect()
+        print(x,y)
+        sleep(.3)
 
     # move((x, y), (640, 400))    # moves barrel so that camera is centered on box
     dist = getTFminiData()      # get distance to target

@@ -11,7 +11,7 @@ for i in range(0, 800):
     m1.inc()
     time.sleep(.001)
 for i in range(0, 10):
-    m2.inc()
+#    m2.inc()
     #m1.dec()
     time.sleep(.05)
 m1.off()

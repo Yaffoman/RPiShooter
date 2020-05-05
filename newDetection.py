@@ -74,22 +74,6 @@ class VideoStream:
 def findmidpt(x1, y1, x2, y2):
     return (x2 + x1) / 2, (y1 + y2) / 2
 
-'''
-def ready(x,y):
-    return dist
-
-
-def aim(dist,phi):
-    y = dist*tan(phi)
-    g = -9.81
-    angle = arcsin(2*(y-dist*g)/VELOCITY)
-    return angle
-
-
-def fire():
-    print("FIRED")  # do some stuff
-'''
-
 
 # Define and parse input arguments
 parser = argparse.ArgumentParser()
@@ -187,18 +171,14 @@ freq = cv2.getTickFrequency()
 videostream = VideoStream(resolution=(imW, imH), framerate=30).start()
 time.sleep(1)
 
-ctr = 0
+# for frame1 in camera.capture_continuous(rawCapture, format="bgr",use_video_port=True):
+xtarg,ytarg,detected = 0,0,False
 def detect():
-    # for frame1 in camera.capture_continuous(rawCapture, format="bgr",use_video_port=True):
-    frame_rate_calc = 1
     while True:
-        global ctr
-        ctr+=1;
-
-        print("got here!" + str(ctr))
         # Start timer (for calculating frame rate)
         t1 = cv2.getTickCount()
 
+        global xtarg,ytarg,detected,frame_rate_calc
         # Grab frame from video stream
         frame1 = videostream.read()
 
@@ -246,13 +226,13 @@ def detect():
                 cv2.putText(frame, label, (xmin, label_ymin - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0),
                             2)  # Draw label text
                 if labels[int(classes[i])] == "person":
+                    detected = True
                     (xtarg, ytarg) = findmidpt(xmin, xmax, ymin, ymax)
-                    print(ctr, xtarg, ytarg)
-                    return xtarg, ytarg
                     #dist = ready(xtarg, ytarg)
                     #aim(dist)
                     #fire()
                     # break #only show first detected box over threshold of a person
+                print(detected)
         # Draw framerate in corner of frame
         cv2.putText(frame, 'FPS: {0:.2f}'.format(frame_rate_calc), (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2,
                     cv2.LINE_AA)
@@ -264,6 +244,8 @@ def detect():
         t2 = cv2.getTickCount()
         time1 = (t2 - t1) / freq
         frame_rate_calc = 1 / time1
+        if detected:
+            break
 
         # Press 'q' to quit
         if cv2.waitKey(1) == ord('q'):
