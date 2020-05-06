@@ -4,7 +4,7 @@ from IOpins import *
 import time
 import keyboard
 
-m1 = Motor(M1A1, M1A2, M1B1, M1B2)
+m1 = Motor(M2A1, M2A2, M2B1, M2B2)
 m2 = NewMotor(enable=en2, direction=dirpin2, pulse=pul2)
 m1.off()
 m2.off()
