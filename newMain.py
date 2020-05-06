@@ -1,6 +1,6 @@
 #initialize everything
 from IOpins import *
-from newDetection import *
+import newDetection
 from Launcher import *
 from motor_control import *
 from tfmini import *
@@ -18,11 +18,11 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         break
     print("Searching...")
-    detect()
-    if detected:
-        x,y = xtarg,ytarg
+    newDetection.detect()
+    if newDetection.detected:
+        x,y = newDetection.xtarg,newDetection.ytarg
         print("Target seen at",x,y)
-        while deteced and (abs(x - 320) > threshold or abs(y-240) > threshold):
+        while newDetection.detected and (abs(x - 320) > threshold or abs(y-240) > threshold):
 
             if x > (320 + threshold):
                 print("Moving right")
@@ -37,11 +37,11 @@ while True:
             elif y < (200 - threshold):
                 print("Moving down")
                 down()
-            detected = 0
+            newDetection.detected = False
             sleep(.3)
             print("Calibrating...")
-            detect()
-            x,y = xtarg,ytarg
+            newDetection.detect()
+            x,y = newDetection.xtarg,newDetection.ytarg
             print("New position at",x,y)
         print("Target centered")
         dist = getTFminiData()      # get distance to target
