@@ -4,10 +4,12 @@ from Motor import *
 from NewMotor import *
 from IOpins import *
 
-motor1 = Motor(M1A1, M1A2, M1B1, M1B2)
-motor2 = NewMotor(enable=en2, direction=dirpin2,pulse=pul2)
+motor2 = Motor(M2A1, M2A2, M2B1, M2B2)
+motor1 = NewMotor(enable=en2, direction=dirpin2,pulse=pul2)
 
-
+def motorsoff():
+    motor2.off()
+    motor1.off()
 def up():
     motor1.inc()
     return

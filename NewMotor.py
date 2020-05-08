@@ -20,18 +20,17 @@ class NewMotor:
         GPIO.output(self.pulse, 1)
 
     def inc(self):
-        print("INC")
         GPIO.output(self.enable, 0)
         GPIO.output(self.direction, 1)
         GPIO.output(self.pulse, 0)
-        sleep(.05)
+        sleep(.01)
         GPIO.output(self.pulse, 1)
 
     def dec(self):
         GPIO.output(self.enable, 0)
         GPIO.output(self.direction, 0)
         GPIO.output(self.pulse, 0)
-        sleep(.05)
+        sleep(.01)
         GPIO.output(self.pulse, 1)
 
     def off(self):
