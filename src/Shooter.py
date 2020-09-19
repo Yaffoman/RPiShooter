@@ -3,6 +3,8 @@ from src.Motor import Motor
 from src.Launcher import Launcher
 from src.tfmini import *
 from math import tan, asin
+import RPi.GPIO as GPIO
+
 
 class Shooter:
 
@@ -10,6 +12,7 @@ class Shooter:
         self.base = Motor(BASE_EN, BASE_DIR, BASE_PUL, 10)
         self.arm = Motor(ARM_EN, ARM_DIR, ARM_PUL, 10)
         self.launcher = Launcher(V_WATER, V_AIR)
+        GPIO.cleanup()
     # MOTOR CONTROLS
 
     def off(self):
@@ -51,7 +54,7 @@ class Shooter:
     def fire(self):
         self.launcher.fire()
 
-    def aim(dist, phi):
+    def aim(self, dist, phi):
         y = dist * tan(phi)
         g = -9.81
         angle = asin(2 * (y - dist * g) / 100)
