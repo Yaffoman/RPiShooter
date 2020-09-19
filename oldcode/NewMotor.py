@@ -4,9 +4,9 @@ from time import sleep
 delay = .05
 
 
-class NewMotor:
+class Motor:
 
-    GPIO.setmode(GPIO.BCM)
+    GPIO.setmode(GPIO.BOARD)
 
     def __init__(self, enable, direction, pulse):
         self.enable = enable

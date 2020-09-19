@@ -1,9 +1,8 @@
 #initialize everything
-from IOpins import *
-import lightDetection as detection
-from Launcher import *
-from motor_control import *
-from tfmini import *
+from oldcode import lightDetection as detection
+from oldcode.Launcher import *
+from oldcode.motor_control import *
+from oldcode.tfmini import *
 import cv2
 
 myLaunch = Launcher(WaterPin, AirPin, 1, .4)

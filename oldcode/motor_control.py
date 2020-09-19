@@ -1,8 +1,7 @@
 import numpy as np
 # idk how to do the actual motor control
-from Motor import *
-from NewMotor import *
-from IOpins import *
+from oldcode.NewMotor import *
+from oldcode.IOpins import *
 
 motor2 = Motor(M2A1, M2A2, M2B1, M2B2)
 motor1 = NewMotor(enable=en2, direction=dirpin2,pulse=pul2)

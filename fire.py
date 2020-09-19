@@ -1,2 +1,0 @@
-import relaytest
-relaytest.fire()
