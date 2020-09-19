@@ -41,7 +41,6 @@ class VideoStream:
 
         # Read first frame from the stream
         (self.grabbed, self.frame) = self.stream.read()
-
         # Variable to control when the camera is stopped
         self.stopped = False
 
@@ -227,12 +226,12 @@ def detect():
                             2)  # Draw label text
                 if labels[int(classes[i])] == "person":
                     detected = True
-                    (xtarg, ytarg) = findmidpt(xmin, xmax, ymin, ymax)
+                    (ytarg, xtarg) = findmidpt(xmin, xmax, ymin, ymax)
+                    
                     #dist = ready(xtarg, ytarg)
                     #aim(dist)
                     #fire()
                     # break #only show first detected box over threshold of a person
-                print(detected)
         # Draw framerate in corner of frame
         cv2.putText(frame, 'FPS: {0:.2f}'.format(frame_rate_calc), (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2,
                     cv2.LINE_AA)

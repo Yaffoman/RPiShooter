@@ -10,7 +10,7 @@ m1.off()
 m2.off()
 m1.inc()
 for i in range(0, 130):
-    m2.dec()
+    m2.inc()
     print("HERE")
     time.sleep(.001)
 for i in range(0, 10):
