@@ -6,8 +6,8 @@ I also modeled parts of my design after HackerShack's motion tracking airsoft gu
 Links to their youtube videos are listed below in 'References'
 ## Getting Started
 ### Software
-First, run the get_pi_requirements script. Ensure the correct versions of opencv and tensorflow are installed as defined in the script, if not, uninstall and reinstall manually the correct version.
-That should be all for the setup, navigate to the src directory to run
+First, run the get_pi_requirements script. Ensure the correct versions of opencv and tensorflow are installed as defined in the script, if not, uninstall and reinstall manually the correct version.  
+That should be all for the setup, navigate to the src directory to run  
 sudo python3 Main.py --modeldir ../TFLite-Sample
 ### Hardware
 #### Things you'll need:
